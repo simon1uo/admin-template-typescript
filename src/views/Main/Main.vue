@@ -1,17 +1,18 @@
 <template>
-<div></div>
+    <div class="main">
+        <h1>Main</h1>
+    </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+
 export default defineComponent({
     name: 'Main',
-    setup () {
+    setup() {
         return {}
     }
 })
 </script>
 
-<style lang="less" scoped>
-
-</style>
+<style lang="less" scoped></style>

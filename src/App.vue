@@ -1,9 +1,11 @@
 <template>
-    <div id="app">
-        <router-link to="/">Home</router-link> |
-        <router-link to="/login">Login</router-link>
+    <div class="app">
+        <router-view />
     </div>
-    <router-view />
 </template>
 
-<style lang="less"></style>
+<style lang="less">
+.app {
+    height: 100%;
+}
+</style>
