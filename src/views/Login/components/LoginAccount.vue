@@ -24,25 +24,39 @@
 import { defineComponent, reactive, ref } from 'vue'
 import { accountRules } from '../config/account-rules'
 import { FormInstance } from 'element-plus'
+import { useStore } from 'vuex'
+
+import localCache from '@/utils/cache'
 
 export default defineComponent({
     name: 'LoginAccount',
     setup() {
         const account = reactive({
-            name: '',
-            password: ''
+            name: localCache.getCache('name') ?? '',
+            password: localCache.getCache('password') ?? ''
         })
-        const isKeepPassword = ref(true) // 默认记住密码
+        const isKeepPassword = ref(false) // 记住密码
 
         const loginAccountFormRef = ref<FormInstance>()
+
+        const store = useStore()
 
         const loginAccountAction = () => {
             loginAccountFormRef.value?.validate((valid) => {
                 if (valid) {
-                    console.log('验证通过')
+                    if (isKeepPassword.value) {
+                        localCache.setCache('name', account.name)
+                        localCache.setCache('password', account.password)
+                    } else {
+                        localCache.removeCache('name')
+                        localCache.removeCache('password')
+                    }
+                    // console.log('验证通过')
                 } else {
                     console.log('验证失败')
                 }
+
+                store.dispatch('login/loginAccountAction', { ...account })
             })
         }
 
