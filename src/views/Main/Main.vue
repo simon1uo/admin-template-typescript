@@ -19,10 +19,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { ref } from 'vue'
+
 import NavSideMenu from '@/components/NavSideMenu/'
 import NavHeader from '@/components/NavHeader/'
-export default defineComponent({
+export default {
     name: 'Main',
     components: {
         NavSideMenu,
@@ -39,14 +40,14 @@ export default defineComponent({
             handleFoldChange
         }
     }
-})
+}
 </script>
 
 <style lang="less" scoped>
 .main {
+    position: fixed;
     top: 0;
     left: 0;
-    position: fixed;
     width: 100%;
     height: 100%;
 }

@@ -1,7 +1,8 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import localCache from '@/utils/cache'
+import { firstMenu } from '@/utils/map-menus'
 
-const routes: Array<RouteRecordRaw> = [
+const routes: RouteRecordRaw[] = [
     {
         path: '/',
         redirect: '/main'
@@ -15,12 +16,17 @@ const routes: Array<RouteRecordRaw> = [
         name: 'Login',
         path: '/login',
         component: () => import('@/views/Login/Login.vue')
+    },
+    {
+        path: '/:pathMatch(.*)*',
+        name: '404',
+        component: () => import('@/views/404/404.vue')
     }
 ]
 
 const router = createRouter({
-    history: createWebHashHistory(),
-    routes
+    routes,
+    history: createWebHashHistory()
 })
 
 router.beforeEach((to) => {
@@ -30,6 +36,11 @@ router.beforeEach((to) => {
         if (!token) {
             return '/login'
         }
+    }
+
+    // 第一个菜单
+    if (to.path === '/main') {
+        return firstMenu.url
     }
 })
 

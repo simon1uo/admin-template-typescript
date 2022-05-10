@@ -51,8 +51,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue'
+import { computed, defineComponent, ref } from 'vue'
 import { useStore } from '@/store'
+import { useRoute, useRouter } from 'vue-router'
+import { pathMapToMenu } from '@/utils/map-menus'
 
 export default defineComponent({
     name: 'NavSideMenu',
@@ -67,8 +69,21 @@ export default defineComponent({
         const store = useStore()
         const userMenus = computed(() => store.state.login.userMenus)
 
+        const router = useRouter()
+        const handleMenuItemClick = (item: any) => {
+            router.push({ path: item.url ?? '/404' })
+        }
+
+        // 获取当前的
+        const route = useRoute()
+        const currentPath = route.path
+        const menu = pathMapToMenu(userMenus.value, currentPath)
+        const defaultActiveValue = ref(menu.id + '')
+
         return {
-            userMenus
+            userMenus,
+            handleMenuItemClick,
+            defaultActiveValue
         }
     }
 })
@@ -91,11 +106,45 @@ export default defineComponent({
             height: 100%;
             margin: 0 10px;
         }
+
         .title {
             color: #f0f2f5;
             font-weight: 700;
             font-size: 16px;
         }
     }
+
+    .el-menu {
+        border-right: none;
+    }
+
+    // 目录
+    .el-submenu {
+        background-color: #001529 !important;
+        // 二级菜单 ( 默认背景 )
+        .el-menu-item {
+            padding-left: 50px !important;
+            background-color: #0c2135 !important;
+        }
+    }
+
+    :deep .el-submenu__title {
+        background-color: #001529 !important;
+    }
+
+    // hover 高亮
+    .el-menu-item:hover {
+        color: #fff !important; // 菜单
+    }
+
+    .el-menu-item.is-active {
+        color: #fff !important;
+        background-color: #0a60bd !important;
+    }
+}
+
+.el-menu-vertical:not(.el-menu--collapse) {
+    width: 100%;
+    height: calc(100% - 48px);
 }
 </style>
