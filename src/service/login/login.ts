@@ -24,7 +24,7 @@ export function requestLoginUserInfo(id: number) {
 
 export function requestUserMenusByRoleId(id: number) {
     return AxiosRequest.get<IDataType>({
-        url: LoginAPI.userMenus,
-        data: id
+        url: LoginAPI.userMenus + id + '/menu',
+        showLoading: false
     })
 }
