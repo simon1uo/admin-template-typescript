@@ -42,11 +42,14 @@ const LoginModule: Module<ILoginState, IRootState> = {
         }
     },
     actions: {
-        async loginAccountAction({ commit }, payload: IAccount) {
+        async loginAccountAction({ commit, dispatch }, payload: IAccount) {
             const loginResult = await requestLoginAction(payload)
             const { id, token } = loginResult.data
             commit('CHANGE_TOKEN', token)
             localCache.setCache('token', token)
+
+            // 以防在获取token之前就初始化了一些数据（菜单权限），所以要在token获取后才进行请求
+            dispatch('getInitialDataAction', null, { root: true })
 
             const loginUserInfoResult = await requestLoginUserInfo(id)
             const userInfo = loginUserInfoResult.data
