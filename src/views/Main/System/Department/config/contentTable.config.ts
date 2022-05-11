@@ -3,7 +3,8 @@ export const departmentContentTableConfig = {
     propList: [
         { prop: 'id', label: 'id', minWidth: '80' },
         { prop: 'name', label: '部门名称', minWidth: '80' },
-        { prop: 'name', label: '领导', minWidth: '80' },
+        { prop: 'parentId', label: '上级部门', minWidth: '80' },
+        { prop: 'leader', label: '领导', minWidth: '80' },
         {
             prop: 'createAt',
             label: '创建时间',
