@@ -55,7 +55,10 @@ export function pathMapToMenu(
     }
 }
 
-export function pathMapBreadcrumbs(userMenu: any[], currentPath: string): any {
+export function pathMapToBreadcrumbs(
+    userMenu: any[],
+    currentPath: string
+): any {
     const breadcrumbs: IBreadcrumb[] = []
     pathMapToMenu(userMenu, currentPath, breadcrumbs)
     return breadcrumbs
