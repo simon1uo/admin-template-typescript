@@ -5,4 +5,6 @@ export interface IPageDataState {
     goodsCount: any
     roleList: any
     roleCount: any
+    menuList: any
+    menuCount: any
 }
