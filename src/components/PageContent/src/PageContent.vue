@@ -97,7 +97,7 @@ export default defineComponent({
         // 发送请求
         const getPageData = (queryInfo: any = {}) => {
             if (!isQuery) return // 如果没有权限就不发送请求
-            store.dispatch('system/getPageListAction', {
+            store.dispatch('pageData/getPageListAction', {
                 pageName: props.pageName,
                 queryInfo: {
                     offset:
@@ -111,11 +111,11 @@ export default defineComponent({
         getPageData()
 
         const dataList = computed(() =>
-            store.getters['system/pageListData'](props.pageName)
+            store.getters['pageData/pageListData'](props.pageName)
         )
 
         const dataCount = computed(() =>
-            store.getters['system/pageListCount'](props.pageName)
+            store.getters['pageData/pageListCount'](props.pageName)
         )
 
         // 获取其他动态插槽名称
@@ -130,7 +130,7 @@ export default defineComponent({
 
         // 删除、编辑、新增操作
         const handleDeleteClick = (item: any) => {
-            store.dispatch('system/deletePageDataAction', {
+            store.dispatch('pageData/deletePageDataAction', {
                 pageName: props.pageName,
                 id: item.id
             })

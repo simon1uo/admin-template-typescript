@@ -3,8 +3,8 @@ import { IRootState, IStoreType } from '@/store/type'
 import { useStore as useVuexStore } from 'vuex'
 
 import login from './login/login'
-import system from './main/system/system'
-import { getPageListData } from '@/service/main/system/system'
+import pageData from './main/pageData/pageData'
+import { getPageListData } from '@/service/main/pageData/pageData'
 
 const store = createStore<IRootState>({
     state: {
@@ -25,6 +25,7 @@ const store = createStore<IRootState>({
     },
     actions: {
         async getInitialDataAction({ commit }) {
+            console.log('getInitialDataAction')
             const departmentResult = await getPageListData('/department/list', {
                 offset: 0,
                 size: 100
@@ -48,7 +49,7 @@ const store = createStore<IRootState>({
     },
     modules: {
         login,
-        system
+        pageData
     }
 })
 

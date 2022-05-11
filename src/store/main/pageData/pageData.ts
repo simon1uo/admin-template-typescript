@@ -1,14 +1,14 @@
 import { Module } from 'vuex'
-import { ISystemState } from './types'
+import { IPageDataState } from '@/store/main/pageData/types'
 import { IRootState } from '@/store/type'
 import {
     createPageData,
     deletePageData,
     editPageData,
     getPageListData
-} from '@/service/main/system/system'
+} from '@/service/main/pageData/pageData'
 
-const SystemModule: Module<ISystemState, IRootState> = {
+const PageDataModule: Module<IPageDataState, IRootState> = {
     namespaced: true,
     state() {
         return {
@@ -101,4 +101,4 @@ const SystemModule: Module<ISystemState, IRootState> = {
     }
 }
 
-export default SystemModule
+export default PageDataModule
