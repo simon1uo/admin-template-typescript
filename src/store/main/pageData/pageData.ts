@@ -13,7 +13,9 @@ const PageDataModule: Module<IPageDataState, IRootState> = {
     state() {
         return {
             usersList: [],
-            usersCount: 0
+            usersCount: 0,
+            goodsList: [],
+            goodsCount: 0
         }
     },
     mutations: {
@@ -22,6 +24,12 @@ const PageDataModule: Module<IPageDataState, IRootState> = {
         },
         CHANGE_USERS_COUNT(state, usersCount: number) {
             state.usersCount = usersCount
+        },
+        CHANGE_GOODS_LIST(state, goodsList: any[]) {
+            state.goodsList = goodsList
+        },
+        CHANGE_GOODS_COUNT(state, goodsCount: number) {
+            state.goodsCount = goodsCount
         }
     },
     getters: {
