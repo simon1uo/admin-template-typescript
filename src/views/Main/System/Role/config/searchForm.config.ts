@@ -1,0 +1,39 @@
+import { IForm } from '@/base-ui/InputForm'
+
+export const roleSearchFormConfig: IForm = {
+    labelWidth: '120px',
+    itemLayout: {
+        padding: '20px 60px'
+    },
+    formItems: [
+        {
+            field: 'id',
+            type: 'input',
+            label: 'id',
+            placeholder: '请输入id'
+        },
+        {
+            field: 'name',
+            type: 'input',
+            label: '角色名称',
+            placeholder: '请输入角色名称名'
+        },
+        {
+            field: 'intro',
+            type: 'input',
+            label: '权限介绍',
+            placeholder: '请输入权限介绍'
+        },
+        {
+            field: 'createTime',
+            type: 'datepicker',
+            label: '创建时间',
+            placeholder: '请输入创建时间',
+            otherOptions: {
+                startPlaceholder: '开始时间',
+                endPlaceholder: '结束时间',
+                type: 'daterange'
+            }
+        }
+    ]
+}

@@ -38,6 +38,7 @@ declare module '@vue/runtime-core' {
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
     ElTabPane: typeof import('element-plus/es')['ElTabPane']
     ElTabs: typeof import('element-plus/es')['ElTabs']
+    ElTree: typeof import('element-plus/es')['ElTree']
     NavHeader: typeof import('./src/components/NavHeader/src/NavHeader.vue')['default']
     NavSideMenu: typeof import('./src/components/NavSideMenu/src/NavSideMenu.vue')['default']
     NavUserInfo: typeof import('./src/components/NavHeader/src/NavUserInfo.vue')['default']
