@@ -1,7 +1,7 @@
 export const goodsContentTableConfig = {
     title: '商品列表',
     propList: [
-        { prop: 'name', label: '商品民称', minWidth: '80' },
+        { prop: 'name', label: '商品名称', minWidth: '80' },
         { prop: 'oldPrice', label: '原价', minWidth: '50', slotName: 'price' },
         { prop: 'newPrice', label: '现价', minWidth: '50', slotName: 'price' },
         {
