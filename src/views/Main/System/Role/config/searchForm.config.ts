@@ -16,7 +16,7 @@ export const roleSearchFormConfig: IForm = {
             field: 'name',
             type: 'input',
             label: '角色名称',
-            placeholder: '请输入角色名称名'
+            placeholder: '请输入角色名称'
         },
         {
             field: 'intro',
