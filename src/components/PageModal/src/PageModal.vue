@@ -66,14 +66,14 @@ export default defineComponent({
             dialogVisible.value = false
             if (Object.keys(props.defaultInfo).length) {
                 // 有内容则为编辑
-                store.dispatch('system/editPageDataAction', {
+                store.dispatch('pageData/editPageDataAction', {
                     pageName: props.pageName,
                     editData: { ...formData.value, ...props.otherInfo },
                     id: props.defaultInfo.id
                 })
             } else {
                 // 无内容则为新建
-                store.dispatch('system/createPageDataAction', {
+                store.dispatch('pageData/createPageDataAction', {
                     pageName: props.pageName,
                     newData: { ...formData.value, ...props.otherInfo }
                 })
