@@ -50,7 +50,6 @@ export default defineComponent({
 
         const handleLoginClick = () => {
             if (currentTab.value === 'account') {
-                console.log('loginAccount')
                 accountLoginRef.value?.loginAccountAction()
             } else if (currentTab.value === 'phone') {
                 phoneLoginRef.value?.loginPhoneAction()
