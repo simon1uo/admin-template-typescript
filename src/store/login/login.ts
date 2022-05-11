@@ -10,7 +10,7 @@ import {
 
 import localCache from '@/utils/cache'
 import router from '@/router'
-import { mapMenusToRoutes } from '@/utils/map-menus'
+import { mapMenusToRoutes, mapMenuToPermissions } from '@/utils/map-menus'
 
 const LoginModule: Module<ILoginState, IRootState> = {
     namespaced: true,
@@ -18,7 +18,8 @@ const LoginModule: Module<ILoginState, IRootState> = {
         return {
             token: '',
             userInfo: [],
-            userMenus: []
+            userMenus: [],
+            permissions: []
         }
     },
     mutations: {
@@ -35,6 +36,9 @@ const LoginModule: Module<ILoginState, IRootState> = {
             routes.forEach((route) => {
                 router.addRoute('Main', route)
             })
+
+            const permissions = mapMenuToPermissions(userMenus)
+            state.permissions = permissions
         }
     },
     actions: {
