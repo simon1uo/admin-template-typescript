@@ -1,12 +1,12 @@
 <template>
     <div class="users">
         <PageSearch
-            :search-form-config="searchFormConfig"
+            :search-form-config="usersSearchFormConfig"
             @resetBtnClick="handleResetClick"
             @queryBtnClick="handleQueryClick"
         />
         <PageContent
-            :content-table-config="contentTableConfig"
+            :content-table-config="usersContentTableConfig"
             page-name="users"
             ref="pageContentRef"
             @createBtnClick="handleCreateData"
@@ -24,7 +24,7 @@
             ref="pageModalRef"
             page-name="users"
             :default-info="defaultInfo"
-            :modal-config="modalConfigComputedRef"
+            :modal-config="computedModalConfig"
         />
     </div>
 </template>
@@ -37,9 +37,9 @@ import PageSearch from '@/components/PageSearch/'
 import PageContent from '@/components/PageContent/'
 import PageModal from '@/components/PageModal/'
 
-import { searchFormConfig } from './config/searchForm.config'
-import { contentTableConfig } from './config/contentTable.config'
-import { modalConfig } from './config/modal.config'
+import { usersSearchFormConfig } from './config/searchForm.config'
+import { usersContentTableConfig } from './config/contentTable.config'
+import { usersModalConfig } from './config/modal.config'
 
 import { usePageSearch } from '@/hook/usePageSearch'
 import { usePageModal } from '@/hook/usePageModal'
@@ -54,14 +54,14 @@ export default defineComponent({
         // user页面中独有的回调函数，才传给hook中执行，不传则不执行
         // 处理密码逻辑
         const createCallback = () => {
-            const passwordItem = modalConfig.formItems.find(
+            const passwordItem = usersModalConfig.formItems.find(
                 (item) => item.field === 'password'
             )
             passwordItem!.isHidden = false
         }
 
         const editCallback = () => {
-            const passwordItem = modalConfig.formItems.find(
+            const passwordItem = usersModalConfig.formItems.find(
                 (item) => item.field === 'password'
             )
             passwordItem!.isHidden = true
@@ -71,8 +71,8 @@ export default defineComponent({
         const store = useStore()
         store.dispatch('loadLocalEntireList')
         // 使用computed转换为一个响应的配置，组件绑定为该配置
-        const modalConfigComputedRef = computed(() => {
-            const departmentItem = modalConfig.formItems.find(
+        const computedModalConfig = computed(() => {
+            const departmentItem = usersModalConfig.formItems.find(
                 (item) => item.field === 'departmentId'
             )
             departmentItem!.options = store.state.entireDepartment.map(
@@ -80,27 +80,27 @@ export default defineComponent({
                     return { title: item.name, value: item.id }
                 }
             )
-            const roleItem = modalConfig.formItems.find(
+            const roleItem = usersModalConfig.formItems.find(
                 (item) => item.field === 'roleId'
             )
             roleItem!.options = store.state.entireRole.map((item: any) => {
                 return { title: item.name, value: item.id }
             })
-            return modalConfig
+            return usersModalConfig
         })
 
         const [pageModalRef, defaultInfo, handleCreateData, handleEditData] =
             usePageModal(createCallback, editCallback)
 
         return {
-            searchFormConfig,
-            contentTableConfig,
-            modalConfig,
+            usersSearchFormConfig,
+            usersContentTableConfig,
+            usersModalConfig,
             pageContentRef,
             handleResetClick,
             handleQueryClick,
             pageModalRef,
-            modalConfigComputedRef,
+            computedModalConfig,
             defaultInfo,
             handleCreateData,
             handleEditData

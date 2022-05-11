@@ -1,6 +1,6 @@
 import { IForm } from '@/base-ui/InputForm'
 
-export const modalConfig: IForm = {
+export const usersModalConfig: IForm = {
     formItems: [
         {
             field: 'name',
