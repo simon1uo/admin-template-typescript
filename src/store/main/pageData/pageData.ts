@@ -12,28 +12,33 @@ const PageDataModule: Module<IPageDataState, IRootState> = {
     namespaced: true,
     state() {
         return {
-            usersList: [],
-            usersCount: 0,
-            goodsList: [],
-            goodsCount: 0,
+            departmentList: [],
+            departmentCount: 0,
+            menuList: [],
+            menuCount: 0,
             roleList: [],
             roleCount: 0,
-            menuList: [],
-            menuCount: 0
+            usersList: [],
+            usersCount: 0,
+
+            goodsList: [],
+            goodsCount: 0,
+            categoryList: [],
+            categoryCount: 0
         }
     },
     mutations: {
-        CHANGE_USERS_LIST(state, usersList: any[]) {
-            state.usersList = usersList
+        CHANGE_DEPARTMENT_LIST(state, departmentList: any[]) {
+            state.departmentList = departmentList
         },
-        CHANGE_USERS_COUNT(state, usersCount: number) {
-            state.usersCount = usersCount
+        CHANGE_DEPARTMENT_COUNT(state, departmentCount: number) {
+            state.departmentCount = departmentCount
         },
-        CHANGE_GOODS_LIST(state, goodsList: any[]) {
-            state.goodsList = goodsList
+        CHANGE_MENU_LIST(state, menuList: any[]) {
+            state.menuList = menuList
         },
-        CHANGE_GOODS_COUNT(state, goodsCount: number) {
-            state.goodsCount = goodsCount
+        CHANGE_MENU_COUNT(state, menuCount: number) {
+            state.menuCount = menuCount
         },
         CHANGE_ROLE_LIST(state, roleList: any[]) {
             state.roleList = roleList
@@ -41,11 +46,24 @@ const PageDataModule: Module<IPageDataState, IRootState> = {
         CHANGE_ROLE_COUNT(state, roleCount: number) {
             state.roleCount = roleCount
         },
-        CHANGE_MENU_LIST(state, menuList: any[]) {
-            state.menuList = menuList
+        CHANGE_USERS_LIST(state, usersList: any[]) {
+            state.usersList = usersList
         },
-        CHANGE_MENU_COUNT(state, menuCount: number) {
-            state.menuCount = menuCount
+        CHANGE_USERS_COUNT(state, usersCount: number) {
+            state.usersCount = usersCount
+        },
+
+        CHANGE_GOODS_LIST(state, goodsList: any[]) {
+            state.goodsList = goodsList
+        },
+        CHANGE_GOODS_COUNT(state, goodsCount: number) {
+            state.goodsCount = goodsCount
+        },
+        CHANGE_CATEGORY_LIST(state, categoryList: any[]) {
+            state.categoryList = categoryList
+        },
+        CHANGE_CATEGORY_COUNT(state, categoryCount: number) {
+            state.categoryCount = categoryCount
         }
     },
     getters: {
