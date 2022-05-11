@@ -24,7 +24,7 @@
 
 <script lang="ts">
 import { defineComponent, reactive, ref } from 'vue'
-import { phoneRules } from '../config/account-rules'
+import { phoneRules } from '../config/phone-rules'
 import { FormInstance } from 'element-plus'
 export default defineComponent({
     name: 'LoginPhone',
