@@ -69,7 +69,6 @@ const store = createStore<IRootState>({
 
 export function setupStore() {
     store.dispatch('login/loadLocalLoginInfo')
-    store.dispatch('loadLocalEntireList')
 }
 
 export function useStore(): Store<IStoreType> {

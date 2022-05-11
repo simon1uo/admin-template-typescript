@@ -69,6 +69,7 @@ export default defineComponent({
 
         // 动态添加部门、角色列表
         const store = useStore()
+        store.dispatch('loadLocalEntireList')
         // 使用computed转换为一个响应的配置，组件绑定为该配置
         const modalConfigComputedRef = computed(() => {
             const departmentItem = modalConfig.formItems.find(
