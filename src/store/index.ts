@@ -4,6 +4,7 @@ import { useStore as useVuexStore } from 'vuex'
 
 import login from './login/login'
 import pageData from './main/pageData/pageData'
+import dashboard from './main/analysis/dashboard'
 import { getPageListData } from '@/service/main/pageData/pageData'
 
 import localCache from '@/utils/cache'
@@ -63,7 +64,8 @@ const store = createStore<IRootState>({
     },
     modules: {
         login,
-        pageData
+        pageData,
+        dashboard
     }
 })
 

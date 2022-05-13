@@ -5,11 +5,13 @@ import '@vue/runtime-core'
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    BarChart: typeof import('./src/components/PageChart/src/BarChart.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElBreadcrumb: typeof import('element-plus/es')['ElBreadcrumb']
     ElBreadcrumbItem: typeof import('element-plus/es')['ElBreadcrumbItem']
     ElButton: typeof import('element-plus/es')['ElButton']
+    ElCard: typeof import('element-plus/es')['ElCard']
     ElCheckbox: typeof import('element-plus/es')['ElCheckbox']
     ElCol: typeof import('element-plus/es')['ElCol']
     ElContainer: typeof import('element-plus/es')['ElContainer']
@@ -39,12 +41,16 @@ declare module '@vue/runtime-core' {
     ElTabPane: typeof import('element-plus/es')['ElTabPane']
     ElTabs: typeof import('element-plus/es')['ElTabs']
     ElTree: typeof import('element-plus/es')['ElTree']
+    LineChart: typeof import('./src/components/PageChart/src/LineChart.vue')['default']
+    MapChart: typeof import('./src/components/PageChart/src/MapChart.vue')['default']
     NavHeader: typeof import('./src/components/NavHeader/src/NavHeader.vue')['default']
     NavSideMenu: typeof import('./src/components/NavSideMenu/src/NavSideMenu.vue')['default']
     NavUserInfo: typeof import('./src/components/NavHeader/src/NavUserInfo.vue')['default']
     PageContent: typeof import('./src/components/PageContent/src/PageContent.vue')['default']
     PageModal: typeof import('./src/components/PageModal/src/PageModal.vue')['default']
     PageSearch: typeof import('./src/components/PageSearch/src/PageSearch.vue')['default']
+    PieChart: typeof import('./src/components/PageChart/src/PieChart.vue')['default']
+    RoseChart: typeof import('./src/components/PageChart/src/RoseChart.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }
