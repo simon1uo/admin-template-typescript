@@ -31,6 +31,9 @@ export default defineComponent({
 </script>
 
 <style lang="less" scoped>
+.card {
+    margin-bottom: 20px;
+}
 .box-card {
     &:deep(.el-card__header) {
         padding: 10px 20px !important;
@@ -42,6 +45,7 @@ export default defineComponent({
     justify-content: space-between;
     align-items: center;
     height: 30px;
+    font-weight: bold;
 }
 
 .item {
